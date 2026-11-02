@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flight Control</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Flight Control">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#4A5A36">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html, body { margin: 0; height: 100%; background: #4A5A36; overflow: hidden; }
+  #app { position: fixed; top: 0; left: 0; right: 0; bottom: env(safe-area-inset-bottom, 0px); width: 100%; height: calc(100% - env(safe-area-inset-bottom, 0px)); border: 0; background: #F2F3EC; }
+  #carregando { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; color: #fff; font: 600 16px system-ui, -apple-system, sans-serif; }
+  #carregando img { width: 120px; height: 120px; border-radius: 28px; }
+  #carregando a { color: #E6EBDA; }
+</style>
+</head>
+<body>
+<div id="carregando">
+  <img src="icon-180.png" alt="">
+  <span>Abrindo o Flight Control…</span>
+  <a id="direto" href="https://script.google.com/macros/s/AKfycbzdtcRPIfxmQiE8v4flZJs1Z-v6M6WpH3yM0yYJNcSrm8W4ztwo484yYJ3K8tZaZXdeaQ/exec" hidden>Não abriu? Toque aqui</a>
+</div>
+<iframe id="app" title="Flight Control" src="https://script.google.com/macros/s/AKfycbzdtcRPIfxmQiE8v4flZJs1Z-v6M6WpH3yM0yYJNcSrm8W4ztwo484yYJ3K8tZaZXdeaQ/exec" allow="clipboard-write"></iframe>
+<script>
+  var f = document.getElementById('app');
+  f.style.visibility = 'hidden';
+  f.addEventListener('load', function () { f.style.visibility = 'visible'; document.getElementById('carregando').hidden = true; });
+  setTimeout(function () { document.getElementById('direto').hidden = false; }, 12000);
+</script>
+</body>
+</html>
